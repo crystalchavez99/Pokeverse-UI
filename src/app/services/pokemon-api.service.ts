@@ -11,7 +11,11 @@ export class PokemonApiService {
 
   }
 
-  getData(): Observable<any>{
+  getPokedexList(): Observable<any>{
     return this.http.get<any>('https://pokeapi.co/api/v2/pokemon?limit=151')
+  }
+
+  getPokemon(url: string): Observable<any>{
+    return this.http.get<any>(url);
   }
 }
