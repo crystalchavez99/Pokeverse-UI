@@ -1,15 +1,17 @@
 <ng-container>
     <div class="pokemon">
-        <h3>No.{{pokemon?.id}} {{pokemon?.name}}</h3>
         <img src="{{pokemon?.sprite}}" alt="">
-       <div>
-        <p>Types</p>
-        <div *ngFor="let type of pokemon?.types">
-            <p>{{type?.type?.name}}</p>
-        </div>
+       <div class="stats">
+        <div>
+          <p>No.{{pokemon?.id}} {{pokemon?.name}}</p>
+          <p>Types</p>
+          <div *ngFor="let type of pokemon?.types" class="types">
+              <p>{{type?.type?.name}}</p>
+          </div>
+         </div>
+         <p>Height: {{pokemon?.height}}</p>
+          <p>Weight: {{pokemon?.weight}} lbs</p>
        </div>
-       <p>Height: {{pokemon?.height}}</p>
-        <p>Weight: {{pokemon?.weight}} lbs</p>
     </div>
 
 </ng-container>
