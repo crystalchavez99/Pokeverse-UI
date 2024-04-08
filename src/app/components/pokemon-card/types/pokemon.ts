@@ -1,5 +1,8 @@
 export interface Pokemon {
     id: number,
     name: string,
-    sprite: string | null
+    sprite: string,
+    types: any[],
+    weight: number,
+    height: number
 }
