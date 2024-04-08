@@ -10,19 +10,19 @@ import { PokemonApiService } from '../../services/pokemon-api.service';
   styleUrl: './pokemon-card.component.css'
 })
 export class PokemonCardComponent {
-  @Input() pokemon: Pokemon | undefined;
+  @Input() pokemonEntry: any;
 
   data: any;
+  pokemon: Pokemon | undefined;
 
   constructor(private apiService: PokemonApiService) {}
   ngOnInit(): void {
-    if(this.pokemon){
-      this.apiService.getPokemon(this?.pokemon?.url).subscribe(
+    if(this.pokemonEntry){
+      this.apiService.getPokemon(this?.pokemonEntry?.url).subscribe(
         response =>{
           this.data = response;
           console.log(`poke`,this.data)
-          let sprite = this.data.sprites['front_default'];
-          this?.pokemon?.sprite  = sprite;
+          this.pokemon = {id:this.data.id,name: this.data.name, sprite: this.data.sprites['front_default']}
         }
       )
     }
